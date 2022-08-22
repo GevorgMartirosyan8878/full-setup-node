@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express';
+import * as express from 'express';
 import * as dotenv from 'dotenv';
 import { logger } from './logger/logger';
 import * as cors from 'cors';
+import { Request, Response } from 'express';
 
 const app = express();
 
