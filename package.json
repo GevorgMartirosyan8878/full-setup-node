@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/index",
   "scripts": {
-    "start": "npm run build && node build/index.js",
+    "start": "node build/index.js",
     "build": "npx rimraf ./build && tsc",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
