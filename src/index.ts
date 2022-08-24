@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as dotenv from 'dotenv';
 import { logger } from './logger/logger';
 import * as cors from 'cors';
-import { Request, Response } from 'express';
+import { mainRoute } from './routers/router';
 
 const app = express();
 
@@ -12,24 +12,9 @@ app.use(cors());
 
 const PORT: number = Number(process.env.PORT) || 3001;
 
-app.get('/', (req: Request, res: Response) => {
-  const jsonObj = JSON.stringify({
-    name: 'gev',
-  });
-
-  res.send(jsonObj);
-});
-
-app.get('/gev', (req: Request, res: Response) => {
-  const jsonObj = JSON.stringify({
-    name: 'jan',
-  });
-
-  res.send(jsonObj);
-});
+// public route
+app.use('/main', mainRoute);
 
 app.listen(PORT, () => {
-  logger.info(
-    `Server starting on ${PORT} port: http://localhost:${PORT}`
-  );
+  logger.info(`Server starting on ${PORT} port: http://localhost:${PORT}`);
 });
